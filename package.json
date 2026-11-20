@@ -1,0 +1,13 @@
+{
+  "name": "freshman-card-defence",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22.13.0" },
+  "scripts": {
+    "build": "node scripts/build-pages.mjs",
+    "export": "node scripts/export-single.mjs",
+    "start": "node scripts/preview.mjs",
+    "test": "node --test tests/*.test.mjs"
+  }
+}

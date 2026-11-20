@@ -1,0 +1,14 @@
+Background music: Happy Adventure (Loop), by TinyWorlds.
+Source: https://opengameart.org/content/happy-adventure-loop
+Download: https://opengameart.org/sites/default/files/happy_adveture.mp3
+License: CC0 / public domain.
+
+Sound effects: Interface Sounds, by Kenney.
+Source: https://kenney.nl/assets/interface-sounds
+Author upload: https://opengameart.org/content/interface-sounds
+Download: https://opengameart.org/sites/default/files/kenney_interfaceSounds.zip
+License: CC0. See kenney-license.txt.
+Used files: click_003.ogg, confirmation_002.ogg, back_001.ogg.
+
+Additional descending failure tone synthesized by this game.
+All visual character art is supplied by the user and remains unchanged.

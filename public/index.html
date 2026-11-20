@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="大一新生大战校园卡推销。左右躲避，用不要、no、用不着、谢谢打掉传单和校园卡！">
+  <title>新生请说不 · 校园卡保卫战</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<main class="game-shell">
+  <header class="masthead">
+    <div class="brand"><span class="brand-mark" aria-hidden="true">不</span><div><strong>新生请说不</strong><span>大一新生大战期末考试</span></div></div>
+    <button id="leaderboard-button" class="text-button">本机排行</button>
+  </header>
+  <section class="game-sheet" aria-label="第一关：校园卡保卫战">
+    <div class="hud">
+      <div class="score-display"><span>得分</span><strong id="score">00000</strong></div>
+      <div class="chapter"><strong>第一关 · 校园卡保卫战</strong><span id="player-label">新生，还没报到呢？</span></div>
+      <button id="sound-button" class="sound-button" aria-pressed="true" aria-label="关闭音乐和音效">声音开</button>
+    </div>
+    <div class="stage">
+      <canvas id="game" width="420" height="650" aria-label="学长学姐在上方撒传单，主角在底部左右移动并自动反击"></canvas>
+      <div class="pace"><span id="pace-label">推销热情</span><div class="pace-track"><i id="pace-fill"></i></div></div>
+      <section class="overlay" id="welcome">
+        <div class="paper-card welcome-card">
+          <span class="eyebrow">新生生存手册 / 第 1 页</span>
+          <h1>这张卡，<br><em>我不办。</em></h1>
+          <p class="intro">学长学姐太热情？<br>左右躲一躲，把“不”说出口。</p>
+          <form id="start-form">
+            <label for="nickname">你的新生昵称 <span id="name-count">0 / 9</span></label>
+            <input id="nickname" name="nickname" type="text" autocomplete="nickname" placeholder="先签个到，最多九个字" required aria-describedby="name-error">
+            <p class="form-error" id="name-error" role="alert"></p>
+            <button id="start-button" class="primary-button" type="submit" disabled>正在准备素材…</button>
+          </form>
+          <p class="rule-note">打掉一个 +10 分 · 碰到一次就下课<br>排行榜保存在当前浏览器</p>
+        </div>
+      </section>
+      <section class="overlay" id="pause-overlay" hidden>
+        <div class="paper-card compact-card"><span class="eyebrow">课间休息</span><h2>歇口气。</h2><p>传单也暂停了，准备好再继续。</p><button id="resume-button" class="primary-button">继续躲推销</button><button id="pause-home-button" class="secondary-button">结束本局</button></div>
+      </section>
+      <section class="overlay" id="result-overlay" hidden>
+        <div class="paper-card result-card"><span class="eyebrow">本次入学实录</span><h2>还是被<br><em>塞了一张。</em></h2><div class="result-score"><strong id="final-score">0</strong><span>分</span></div><p id="result-detail"></p><p id="save-status" role="status">正在记录成绩…</p><button id="retry-save" class="text-button" hidden>重试保存成绩</button><button id="retry-button" class="primary-button">再说一次不</button><div class="result-actions"><button id="result-board-button" class="text-button">看排行榜</button><button id="rename-button" class="text-button">换个昵称</button></div></div>
+      </section>
+    </div>
+    <div class="controls" aria-label="移动控制">
+      <button id="left-button" class="move-button" aria-label="按住向左移动"><span>左移</span><small>A / ←</small></button>
+      <button id="pause-button" class="pause-button" aria-label="暂停游戏" disabled><span aria-hidden="true">Ⅱ</span><small>暂停</small></button>
+      <button id="right-button" class="move-button" aria-label="按住向右移动"><span>右移</span><small>D / →</small></button>
+    </div>
+  </section>
+  <footer class="footnote"><span>按住左右移动 · 对话框自动发射</span><button id="credits-button" class="text-button">素材鸣谢</button></footer>
+</main>
+<dialog id="board-dialog" aria-labelledby="board-title"><div class="dialog-header"><div><span class="eyebrow">谁最会拒绝推销</span><h2 id="board-title">新生本机排行榜</h2></div><button class="close-button" data-close="board-dialog" aria-label="关闭排行榜">×</button></div><p class="board-caption">成绩保存在当前浏览器，不同设备不互通。每个昵称保留最高分，显示前20名。</p><div id="board-status" role="status">正在翻开签到册…</div><ol id="board-list"></ol><button id="refresh-board" class="secondary-button">刷新榜单</button></dialog>
+<dialog id="credits-dialog" aria-labelledby="credits-title"><div class="dialog-header"><h2 id="credits-title">这一页的创作者</h2><button class="close-button" data-close="credits-dialog" aria-label="关闭鸣谢">×</button></div><p>角色、校园卡、传单与校门：你的原创手绘。</p><p>背景音乐：<a href="https://opengameart.org/content/happy-adventure-loop" target="_blank" rel="noopener">Happy Adventure — TinyWorlds</a>（CC0）。</p><p>音效：<a href="https://kenney.nl/assets/interface-sounds" target="_blank" rel="noopener">Interface Sounds — Kenney</a>（CC0），以及程序合成音效。</p><p>手绘素材保留原图，以画面区域直接引用。</p></dialog>
+<script type="module" src="./game.mjs"></script>
+</body>
+</html>
